@@ -1,0 +1,21 @@
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+    - '**/Gemfile'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - bin/**
+    - spec/**/*
+    - Guardfile
+Documentation:
+  Enabled: false
+LineLength:
+  Enabled: true
+  Max: 160
+AbcSize:
+  Enabled: false
+FrozenStringLiteralComment:
+  Enabled: false

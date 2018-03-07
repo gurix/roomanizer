@@ -2,6 +2,11 @@
 
 require 'active_support/inflector'
 
+guard 'rails', port: 3001 do
+  watch('Gemfile.lock')
+  watch(%r{^(config|lib)/.*})
+end
+
 guard :shell do
   # Some problems with this approach (double reloading of livereload):
   # - http://stackoverflow.com/questions/28136107/guard-gem-pause-file-modification-within-guardfile-for-execution-of-a-block
@@ -16,7 +21,7 @@ guard :shell do
   # end
 end
 
-guard :livereload, port: 35729 do
+guard :livereload, port: 35730 do
   watch(%r{app/views/.+\.(erb|haml|slim)$})
   watch(%r{app/(helpers|inputs)/.+\.rb})
   watch('config/routes.rb')

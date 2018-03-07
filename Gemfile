@@ -127,6 +127,7 @@ group :development do
   # Guard: automatically run commands when files are changed
   gem 'guard'
   gem 'guard-rspec', require: false      # Automatically run tests
+  gem 'guard-rails'
   gem 'terminal-notifier-guard'          # Mac OS X User Notifications for Guard
   gem 'guard-livereload', require: false # Automatically reload your browser when 'view' files are modified
   gem 'guard-bundler'                    # Automatically install/update gem bundle when needed
