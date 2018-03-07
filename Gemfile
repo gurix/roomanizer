@@ -18,6 +18,8 @@ gem 'sass-rails', '~> 5.0' # Use Sass for stylesheets
 
 gem 'compass-rails' # Compass framework
 
+gem 'viewpoint' # A Ruby client access library for Microsoft Exchange Web Services (EWS)
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
