@@ -7,11 +7,10 @@ cache: bundler
 addons:
   apt_packages:
     - pandoc
-  code_climate:
-    repo_token: 243e5ab59244b7a1d3fb97d56bfe9961307ad558cb4a7cbeec3c85104e9ee11b
+
 before_install:
   - export TZ=Europe/Zurich
-  - mysql -e 'CREATE DATABASE base_test'
+  - mysql -e 'CREATE DATABASE roomanizer_test'
 before_script:
   - cp config/secrets.travis.yml config/secrets.yml
 script:
@@ -21,6 +20,6 @@ script:
 notifications:
   email:
     recipients:
-      - joshua.muheim@access-for-all.ch
+      - grak@zhaw.ch # TODO
     on_failure: change
     on_success: change

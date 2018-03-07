@@ -1,11 +1,6 @@
-# TITLE
-
-TODO: Add badges!
+# Roomanizer - Prototype of a Room Managment System for the Institute of Applied Psychologie ZHAW
 
 ## Setting up project locally
-
-Live project: [ACCOUNT.SERVER.uberspace.de](http://ACCOUNT.SERVER.uberspace.de)
-
 Recommended environment:
 
 - [Mac OS X](http://www.apple.com/osx/)
@@ -14,8 +9,8 @@ Recommended environment:
 
 Setup:
 
-- `$ git clone git@github.com:GITHUB/PROJECT.git`
-- `$ cd PROJECT`
+- `$ git clone git@github.com:gurix/roomanizer.git`
+- `$ cd roomanizer`
 - `$ bundle install`
 - `$ cp config/secrets.example.yml config/secrets.yml`
 - Open `config/secrets.yml` and edit it
