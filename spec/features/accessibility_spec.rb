@@ -5,8 +5,8 @@ describe 'Accessibility' do
     it 'displays a visually hidden text "(required)" at the end of the label' do
       visit new_user_registration_path
 
-      expect(page).to have_css 'label[for="user_name"]', text: 'Name (required)'
-      expect(page).to have_css 'label[for="user_name"] .sr-only', text: '(required)'
+      expect(page).to have_css 'label[for="user_email"]', text: 'Email (required)'
+      expect(page).to have_css 'label[for="user_email"] .sr-only', text: '(required)'
     end
   end
 
@@ -15,13 +15,13 @@ describe 'Accessibility' do
       visit new_user_registration_path
 
       expect(page).to have_css '#user_password_confirmation_help' # Make sure the ID doesn't have a counter suffix, when there is only one help block
-      expect(page).not_to have_css '#user_name[aria-describedby]' # Make sure no empty attributes are assigned
+      expect(page).not_to have_css '#user_email[aria-describedby]' # Make sure no empty attributes are assigned
 
       fill_in 'user_password', with: 'somepassword' # Make sure that the password confirmation error is triggered
       click_button 'Sign up'
 
-      expect(page).to have_css 'input#user_name[aria-describedby="user_name_help"]'
-      expect(page).to have_css '#user_name_help'
+      expect(page).to have_css 'input#user_email[aria-describedby="user_email_help"]'
+      expect(page).to have_css '#user_email_help'
 
       # When there is more than one help block, the ID has a counter suffix
       expect(page).to have_css 'input#user_password_confirmation[aria-describedby="user_password_confirmation_help_1 user_password_confirmation_help_2"]'

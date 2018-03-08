@@ -166,12 +166,12 @@ describe 'Editing user' do
         fill_in 'user_avatar', with: base64_image[:data]
 
         # Trigger validation error
-        fill_in 'user_name', with: ''
+        fill_in 'user_email', with: ''
         click_button 'Update'
         expect(page).to have_flash('User could not be updated.').of_type :alert
 
         # Make validations pass
-        fill_in 'user_name', with: 'john'
+        fill_in 'user_email', with: 'john@example.com'
 
         click_button 'Update'
 
@@ -187,7 +187,7 @@ describe 'Editing user' do
         fill_in 'user_avatar', with: base64_image[:data]
 
         # Trigger validation error
-        fill_in 'user_name', with: ''
+        fill_in 'user_email', with: ''
         click_button 'Update'
         expect(page).to have_flash('User could not be updated.').of_type :alert
 
@@ -195,7 +195,7 @@ describe 'Editing user' do
         find('#user_avatar', visible: false).set base64_other_image[:data]
 
         # Make validations pass
-        fill_in 'user_name', with: 'john'
+        fill_in 'user_email', with: 'john@example.com'
 
         click_button 'Update'
 
@@ -210,7 +210,7 @@ describe 'Editing user' do
         fill_in 'user_avatar', with: base64_image[:data]
 
         # Trigger validation error
-        fill_in 'user_name', with: ''
+        fill_in 'user_email', with: ''
         click_button 'Update'
         expect(page).to have_flash('User could not be updated.').of_type :alert
 
@@ -218,7 +218,7 @@ describe 'Editing user' do
         check 'user_remove_avatar'
 
         # Make validations pass
-        fill_in 'user_name', with: 'john'
+        fill_in 'user_email', with: 'john@example.com'
 
         click_button 'Update'
 
@@ -248,12 +248,12 @@ describe 'Editing user' do
         attach_file 'user_curriculum_vitae', dummy_file_path('document.txt')
 
         # Trigger validation error
-        fill_in 'user_name', with: ''
+        fill_in 'user_email', with: ''
         click_button 'Update'
         expect(page).to have_flash('User could not be updated.').of_type :alert
 
         # Make validations pass
-        fill_in 'user_name', with: 'john'
+        fill_in 'user_email', with: 'john@example.com'
 
         click_button 'Update'
 
@@ -269,7 +269,7 @@ describe 'Editing user' do
         attach_file 'user_curriculum_vitae', dummy_file_path('document.txt')
 
         # Trigger validation error
-        fill_in 'user_name', with: ''
+        fill_in 'user_email', with: ''
         click_button 'Update'
         expect(page).to have_flash('User could not be updated.').of_type :alert
 
@@ -277,7 +277,7 @@ describe 'Editing user' do
         attach_file 'user_curriculum_vitae', dummy_file_path('other_document.txt')
 
         # Make validations pass
-        fill_in 'user_name', with: 'john'
+        fill_in 'user_email', with: 'john@example.com'
 
         click_button 'Update'
 
@@ -292,7 +292,7 @@ describe 'Editing user' do
         attach_file 'user_curriculum_vitae', dummy_file_path('document.txt')
 
         # Trigger validation error
-        fill_in 'user_name', with: ''
+        fill_in 'user_email', with: ''
         click_button 'Update'
         expect(page).to have_flash('User could not be updated.').of_type :alert
 
@@ -300,7 +300,7 @@ describe 'Editing user' do
         check 'user_remove_curriculum_vitae'
 
         # Make validations pass
-        fill_in 'user_name', with: 'john'
+        fill_in 'user_email', with: 'john@example.com'
 
         click_button 'Update'
 

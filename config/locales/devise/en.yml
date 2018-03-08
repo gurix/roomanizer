@@ -41,7 +41,7 @@ en:
       form:
         having_a_problem: Having a problem?
         sign_in: Sign in
-        username_or_email: Username or email
+        email: Email
         visit_full_sign_in_page: Visit the full sign in page!
       new:
         title: Sign in

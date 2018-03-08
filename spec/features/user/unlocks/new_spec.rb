@@ -10,7 +10,7 @@ describe 'Requesting new unlock' do
     visit new_user_session_path
 
     within '#new_user' do
-      fill_in 'user_login',    with: 'User test name'
+      fill_in 'user_email',    with: 'user@example.com'
       fill_in 'user_password', with: 'wrong-password'
       click_button 'Sign in'
     end

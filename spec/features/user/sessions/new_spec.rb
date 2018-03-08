@@ -6,13 +6,28 @@ describe 'Signing in' do
       visit new_user_session_path
 
       within '#new_user' do
-        fill_in 'user_login',    with: ''
+        fill_in 'user_email',    with: ''
         fill_in 'user_password', with: ''
         click_button 'Sign in'
       end
 
       expect(page).to have_content 'Invalid login or password.'
       expect(page).not_to have_link 'Log out'
+    end
+
+    it 'signs up automatically if authenticated through the exchange endpoint' do
+      allow_any_instance_of(Exchangeable).to receive(:authenticated?).and_return(true)
+
+      visit new_user_session_path
+
+      within '#new_user' do
+        fill_in 'user_email',    with: 'hans@wurst.de'
+        fill_in 'user_password', with: 'test'
+        click_button 'Sign in'
+      end
+
+      expect(page).to have_content 'Signed in successfully.'
+      expect(page).to have_link 'Log out'
     end
   end
 
@@ -36,7 +51,7 @@ describe 'Signing in' do
       end
 
       within '#new_user' do
-        fill_in 'user_login',    with: 'User test name'
+        fill_in 'user_email',    with: 'user@example.com'
         fill_in 'user_password', with: 's3cur3p@ssw0rd'
         click_button 'Sign in'
       end
@@ -49,7 +64,7 @@ describe 'Signing in' do
       visit new_user_session_path
 
       within '#new_user' do
-        fill_in 'user_login',    with: 'user@example.com'
+        fill_in 'user_email',    with: 'user@example.com'
         fill_in 'user_password', with: 's3cur3p@ssw0rd'
         click_button 'Sign in'
       end
@@ -62,7 +77,7 @@ describe 'Signing in' do
       visit new_user_session_path
 
       within '#new_user' do
-        fill_in 'user_login',    with: 'unknown'
+        fill_in 'user_email',    with: 'unknown'
         fill_in 'user_password', with: 's3cur3p@ssw0rd'
         click_button 'Sign in'
       end
@@ -75,7 +90,7 @@ describe 'Signing in' do
       visit new_user_session_path
 
       within '#new_user' do
-        fill_in 'user_login',    with: 'donald'
+        fill_in 'user_email',    with: 'donald'
         fill_in 'user_password', with: 'wrong'
         click_button 'Sign in'
       end

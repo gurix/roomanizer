@@ -94,6 +94,7 @@ group :doc do
 end
 
 group :development, :test do
+  gem 'binding_of_caller'
   # Testing tool for the Ruby programming language
   gem 'rspec'
   gem 'rspec-rails' # RSpec for Rails
