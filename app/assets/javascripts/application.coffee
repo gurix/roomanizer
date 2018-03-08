@@ -3,7 +3,7 @@
 # Add more scripts to the block between `require_self` and `require init`!
 #
 #= require jquery
-#
+#= require jquery_ujs
 #= require bootstrap
 #= require cocoon
 #= require diff_match_patch
