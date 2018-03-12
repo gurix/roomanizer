@@ -40,8 +40,8 @@ describe 'Signing up' do
 
     expect(page).to have_link 'Log out'
 
-    visit_in_email('Confirm my account', 'newuser@example.com')
-    expect(page).to have_flash 'Your email address has been successfully confirmed.'
+    #visit_in_email('Confirm my account', 'newuser@example.com')
+    #expect(page).to have_flash 'Your email address has been successfully confirmed.'
   end
 
   describe 'avatar upload' do

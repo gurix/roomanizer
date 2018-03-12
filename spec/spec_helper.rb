@@ -71,4 +71,9 @@ RSpec.configure do |config|
     # a real object. This is generally recommended.
     mocks.verify_partial_doubles = true
   end
+
+  # At the moment we only provide test in english
+  config.before(:each) do
+    I18n.default_locale = :en
+  end
 end
