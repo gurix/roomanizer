@@ -11,10 +11,6 @@ FactoryBot.define do
     humanizer_question_id '16'
     humanizer_answer      '5'
 
-    after(:build) do |user|
-      user.skip_confirmation_notification!
-    end
-
     trait :with_avatar do
       avatar { File.open dummy_file_path('image.jpg') }
     end

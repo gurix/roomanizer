@@ -30,7 +30,6 @@ module Devise
         user = User.find_or_initialize_by(email: email)
         user.bypass_humanizer = true
         user.password = password unless user.valid_password?(password) # Updates the local password even if the exchange one is different
-        user.skip_confirmation! if user.new_record?
         user.save
         return user
       end

@@ -14,7 +14,7 @@ class User < ApplicationRecord
   # :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, authentication_keys: [:email]
+         :lockable, authentication_keys: [:email]
 
   mount_base64_uploader :avatar, AvatarUploader
   mount_uploader :curriculum_vitae, DocumentUploader

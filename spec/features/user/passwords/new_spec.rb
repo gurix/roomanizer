@@ -14,8 +14,8 @@ describe 'Requesting new password' do
     within '.frequently_occuring_sign_in_problems' do
       expect(page).to have_css 'h2', text: 'Frequently occurring sign in problems'
 
-      expect(page).to have_link "Didn't receive confirmation instructions?"
-      expect(page).to have_link "Didn't receive unlock instructions?"
+      #expect(page).to have_link "Didn't receive confirmation instructions?"
+      #expect(page).to have_link "Didn't receive unlock instructions?"
     end
 
     within '#new_user' do

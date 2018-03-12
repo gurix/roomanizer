@@ -29,7 +29,7 @@ describe 'Requesting new unlock' do
       expect(page).to have_css 'h2', text: 'Frequently occurring sign in problems'
 
       expect(page).to have_link 'Forgot your password?'
-      expect(page).to have_link "Didn't receive confirmation instructions?"
+      #expect(page).to have_link "Didn't receive confirmation instructions?"
     end
 
     within '#new_user' do

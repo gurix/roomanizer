@@ -76,7 +76,6 @@ describe 'Editing user' do
         .and change { File.basename(@user.avatar.to_s) }.to('avatar.png')
         .and change { File.basename(@user.curriculum_vitae.to_s) }.to('other_document.txt')
         .and change { @user.about }.to('Some info about me')
-        .and change { @user.unconfirmed_email }.to('new-gustav@example.com')
         .and change { @user.role }.to ('editor')
 
       expect(page).to have_flash 'User was successfully updated.'

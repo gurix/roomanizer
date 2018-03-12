@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Requesting new confirmation' do
+describe 'Requesting new confirmation', pending: 'confirmation disabled in this project' do
   before { @user = create :user, confirmed_at: nil }
 
   it 'is possible to request a new confirmation' do
