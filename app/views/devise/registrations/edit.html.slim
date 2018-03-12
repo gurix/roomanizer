@@ -12,14 +12,14 @@
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       = t('.currently_awaiting_confirmation_for')
       = resource.unconfirmed_email
+  - unless resource.from_exchange
+    = panel do |panel|
+      = panel.heading do
+        = t('.new_password')
 
-  = panel do |panel|
-    = panel.heading do
-      = t('.new_password')
-
-    = panel.body do
-      = f.input :password, autocomplete: 'off'
-      = f.input :password_confirmation
+      = panel.body do
+        = f.input :password, autocomplete: 'off'
+        = f.input :password_confirmation
 
   = panel do |panel|
     = panel.heading do

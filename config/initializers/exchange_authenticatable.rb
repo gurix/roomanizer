@@ -29,6 +29,8 @@ module Devise
       def find_or_create_user
         user = User.find_or_initialize_by(email: email)
         user.bypass_humanizer = true
+        user.from_exchange = true
+        user.name = email
         user.password = password unless user.valid_password?(password) # Updates the local password even if the exchange one is different
         user.save
         return user

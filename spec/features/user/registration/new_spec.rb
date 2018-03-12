@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Signing up' do
-  it 'signs up a new user and lets him confirm his email' do
+  it 'signs up a new user' do
     visit new_user_registration_path
 
     expect(page).to have_title 'Sign up - Base'
@@ -34,6 +34,8 @@ describe 'Signing up' do
     end
 
     click_button 'Sign up'
+    user = User.find_by(email: 'newuser@example.com')
+    expect(user.from_exchange).to eq false
 
     expect(page).to have_flash 'Welcome! You have signed up successfully.'
 

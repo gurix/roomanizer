@@ -28,6 +28,10 @@ describe 'Signing in' do
 
       expect(page).to have_content 'Signed in successfully.'
       expect(page).to have_link 'Log out'
+
+      user = User.find_by(email: 'hans@wurst.de')
+      expect(user.from_exchange).to eq true
+      expect(user.name).to eq 'hans@wurst.de'
     end
   end
 

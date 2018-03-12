@@ -129,5 +129,13 @@ describe 'Editing account' do
 
       expect(page).to have_flash 'Your account has been updated successfully.'
     end
+
+    it 'does not display fields to update the password if the user signed up via exchange' do
+      @user.update_attributes! from_exchange: true
+
+      visit edit_user_registration_path
+
+      expect(page).to_not have_content "New password (leave blank if you don't want to change it)"
+    end
   end
 end
