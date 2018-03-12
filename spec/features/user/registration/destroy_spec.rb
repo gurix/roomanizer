@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Canceling account' do
+describe 'Canceling account', pending: 'disabled at the moment' do
   before do
     @user = create :user
     login_as(@user)
