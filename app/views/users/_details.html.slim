@@ -10,10 +10,6 @@ dl.dl-horizontal
     dt = User.human_attribute_name :avatar
     dd.avatar = zoomable_image user.avatar, alt: user.name
 
-  - if user.curriculum_vitae?
-    dt = User.human_attribute_name :curriculum_vitae
-    dd.curriculum_vitae = link_to user.curriculum_vitae.file.identifier, user.curriculum_vitae.url
-
 - if user.about?
   .about
     h2 = User.human_attribute_name :about

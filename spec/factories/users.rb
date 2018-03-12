@@ -15,10 +15,6 @@ FactoryBot.define do
       avatar { File.open dummy_file_path('image.jpg') }
     end
 
-    trait :with_curriculum_vitae do
-      curriculum_vitae { File.open dummy_file_path('document.txt') }
-    end
-
     trait :editor do
       name  'User test editor-name'
       email 'editor@example.com'

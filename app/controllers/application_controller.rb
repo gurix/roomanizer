@@ -38,9 +38,6 @@ class ApplicationController < ActionController::Base
                                                         :password, :password_confirmation,
                                                         :remember_me,
                                                         :avatar, :avatar_cache, :remove_avatar,
-                                                        :curriculum_vitae,
-                                                        :curriculum_vitae_cache,
-                                                        :remove_curriculum_vitae,
                                                         :humanizer_question_id,
                                                         :humanizer_answer
                                                       ]
@@ -52,10 +49,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: [ :name, :email, :about,
                                                                :password, :password_confirmation,
                                                                :current_password, :avatar,
-                                                               :avatar_cache, :remove_avatar,
-                                                               :curriculum_vitae,
-                                                               :curriculum_vitae_cache,
-                                                               :remove_curriculum_vitae
+                                                               :avatar_cache, :remove_avatar
                                                              ]
   end
 

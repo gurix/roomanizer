@@ -17,13 +17,11 @@ class User < ApplicationRecord
          :lockable, authentication_keys: [:email]
 
   mount_base64_uploader :avatar, AvatarUploader
-  mount_uploader :curriculum_vitae, DocumentUploader
 
   has_many :created_pages,  foreign_key: :creator_id, class_name: 'Page'
   has_many :created_images, foreign_key: :creator_id, class_name: 'Image'
 
   enumerize :role, in: [:user, :editor, :admin], default: :user
 
-  validates :curriculum_vitae, file_size: {maximum: (Rails.env.test? ? 15 : 500).kilobytes.to_i} # TODO: It would be nice to stub the maximum within the spec itself. See https://gist.github.com/chrisbloom7/1009861#comment-1220820
   validates :avatar, file_size: {maximum: (Rails.env.test? ? 15 : 500).kilobytes.to_i} # TODO: It would be nice to stub the maximum within the spec itself. See https://gist.github.com/chrisbloom7/1009861#comment-1220820
 end

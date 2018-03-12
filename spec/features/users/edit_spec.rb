@@ -60,7 +60,6 @@ describe 'Editing user' do
       select  'Editor', from: 'user_role'
 
       fill_in 'user_avatar', with: base64_other_image[:data]
-      attach_file 'user_curriculum_vitae', dummy_file_path('other_document.txt')
 
       within '.actions' do
         expect(page).to have_css 'h2', text: 'Actions'
@@ -74,7 +73,6 @@ describe 'Editing user' do
         @user.reload
       } .to  change { @user.name }.to('gustav')
         .and change { File.basename(@user.avatar.to_s) }.to('avatar.png')
-        .and change { File.basename(@user.curriculum_vitae.to_s) }.to('other_document.txt')
         .and change { @user.about }.to('Some info about me')
         .and change { @user.role }.to ('editor')
 
@@ -88,20 +86,18 @@ describe 'Editing user' do
       expect {
         @user.update_attributes! name:   'interim-name',
                                  about:  "This is some barely interesting info.\n\nI like playing football and reading books.\n\nI don't work as a web developer anymore.",
-                                 avatar: File.open(dummy_file_path('image.jpg')),
-                                 curriculum_vitae: File.open(dummy_file_path('document.txt'))
+                                 avatar: File.open(dummy_file_path('image.jpg'))
       }.to change { @user.lock_version }.by 1
 
       fill_in 'user_name',   with: 'new-name'
       fill_in 'user_avatar', with: base64_other_image[:data]
-      attach_file 'user_curriculum_vitae', dummy_file_path('other_document.txt')
 
       expect {
         click_button 'Update User'
         @user.reload
       }.not_to change { @user }
 
-      expect(page).to have_flash('User meanwhile has been changed. The conflicting fields are: Name, Profile picture, Curriculum vitae, and About.').of_type :alert
+      expect(page).to have_flash('User meanwhile has been changed. The conflicting fields are: Name, Profile picture, and About.').of_type :alert
 
       within '#stale_attribute_user_name' do
         expect(page).to have_css '.attribute',        text: 'Name'
@@ -122,19 +118,12 @@ describe 'Editing user' do
         expect(page).to have_css '.value_difference', text: 'Diff view not possible'
       end
 
-      within '#stale_attribute_user_curriculum_vitae' do
-        expect(page).to have_css '.value_before a', text: 'document.txt'
-        expect(page).to have_css '.value_after a', text: 'other_document.txt'
-        expect(page).to have_css '.value_difference', text: 'Diff view not possible'
-      end
-
       expect {
         click_button 'Update User'
         @user.reload
       } .to  change { @user.name }.to('new-name')
         .and change { @user.about }.to('Info about me.')
         .and change { File.basename(@user.avatar.to_s) }.to('avatar.png')
-        .and change { File.basename(@user.curriculum_vitae.to_s) }.to('other_document.txt')
     end
 
     it "generates a diff view on displaying optimistic locking warning", js: true do
@@ -234,88 +223,6 @@ describe 'Editing user' do
         expect {
           click_button 'Update'
         }.to change { File.basename User.find(@user.id).avatar.to_s }.from('image.jpg').to eq '' # Here @user.reload works! Not the same as in https://github.com/carrierwaveuploader/carrierwave/issues/1752!
-
-        expect(page).to have_flash 'User was successfully updated.'
-      end
-    end
-
-    describe 'curriculum_vitae upload' do
-      it 'caches an uploaded curriculum_vitae during validation errors' do
-        visit edit_user_path @user
-
-        # Upload a file
-        attach_file 'user_curriculum_vitae', dummy_file_path('document.txt')
-
-        # Trigger validation error
-        fill_in 'user_email', with: ''
-        click_button 'Update'
-        expect(page).to have_flash('User could not be updated.').of_type :alert
-
-        # Make validations pass
-        fill_in 'user_email', with: 'john@example.com'
-
-        click_button 'Update'
-
-        expect(page).to have_flash 'User was successfully updated.'
-
-        expect(File.basename(@user.reload.curriculum_vitae.to_s)).to eq 'document.txt'
-      end
-
-      it 'replaces a cached uploaded curriculum_vitae with a new one after validation errors' do
-        visit edit_user_path @user
-
-        # Upload a file
-        attach_file 'user_curriculum_vitae', dummy_file_path('document.txt')
-
-        # Trigger validation error
-        fill_in 'user_email', with: ''
-        click_button 'Update'
-        expect(page).to have_flash('User could not be updated.').of_type :alert
-
-        # Upload another file
-        attach_file 'user_curriculum_vitae', dummy_file_path('other_document.txt')
-
-        # Make validations pass
-        fill_in 'user_email', with: 'john@example.com'
-
-        click_button 'Update'
-
-        expect(page).to have_flash 'User was successfully updated.'
-        expect(File.basename(@user.reload.curriculum_vitae.to_s)).to eq 'other_document.txt' # We need to check for something else than the name here, as it's always the same!
-      end
-
-      it 'allows to remove a cached uploaded curriculum_vitae after validation errors' do
-        visit edit_user_path @user
-
-        # Upload a file
-        attach_file 'user_curriculum_vitae', dummy_file_path('document.txt')
-
-        # Trigger validation error
-        fill_in 'user_email', with: ''
-        click_button 'Update'
-        expect(page).to have_flash('User could not be updated.').of_type :alert
-
-        # Remove curriculum_vitae
-        check 'user_remove_curriculum_vitae'
-
-        # Make validations pass
-        fill_in 'user_email', with: 'john@example.com'
-
-        click_button 'Update'
-
-        expect(page).to have_flash 'User was successfully updated.'
-        expect(@user.reload.curriculum_vitae.to_s).to eq ''
-      end
-
-      it 'allows to remove an uploaded curriculum_vitae' do
-        @user.update_attributes! curriculum_vitae: File.open(dummy_file_path('document.txt'))
-
-        visit edit_user_path @user
-        check 'user_remove_curriculum_vitae'
-
-        expect {
-          click_button 'Update'
-        }.to change { File.basename User.find(@user.id).curriculum_vitae.to_s }.from('document.txt').to eq '' # Here @user.reload works! Not the same as in https://github.com/carrierwaveuploader/carrierwave/issues/1752!
 
         expect(page).to have_flash 'User was successfully updated.'
       end
