@@ -1,9 +1,9 @@
 ---
 de:
   app:
-    acronym: Base
-    name: Base Project
-    slogan: Vorkonfiguriertes grundlegendes zugängliches Rails Projekt. Fork erstellen!
+    acronym: Raumreservation
+    name: Raumreservation
+    slogan: Prototype of a Room Managment System for the Institute of Applied Psychologie ZHAW
   buttons:
     save: Speichern
   'false': Nein
@@ -16,7 +16,7 @@ de:
       number_of_resource: Anzahl %{resource}
       title: Statistiken
   org:
-    name: MuheimWebdesign
+    name: ZHAW
   pages:
     browsing:
       browsing: Blättern
