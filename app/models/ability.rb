@@ -47,6 +47,9 @@ class Ability
 
     can [:index, :read], User
     can(:update, User) { |user| user == current_user }
+
+    can :read, Room
+    can :read, Workspace
   end
 
   def define_abilities_for_editors(current_user)
@@ -59,6 +62,9 @@ class Ability
     can([:update, :destroy], User) { |user| user == current_user }
 
     can [:index, :read], PaperTrail::Version
+
+    can :crud, Room
+    can :crud, Workspace
   end
 
   def define_abilities_for_admins(current_user)
@@ -75,5 +81,8 @@ class Ability
     can(:destroy, User) { |user| user != current_user }
 
     can [:index, :read], PaperTrail::Version
+
+    can :crud, Room
+    can :crud, Workspace
   end
 end

@@ -45,6 +45,30 @@ describe Ability do
     describe 'managing versions' do
       it { should_not be_able_to(:index, PaperTrail::Version) }
     end
+
+    describe 'managing rooms' do
+      it { should_not be_able_to(:index, Room) }
+
+      it { should_not be_able_to(:create, Room) }
+
+      it { should_not be_able_to(:read, Room.new) }
+
+      it { should_not be_able_to(:update, Room.new) }
+
+      it { should_not be_able_to(:destroy, Room.new) }
+    end
+
+    describe 'managing workspaces' do
+      it { should_not be_able_to(:index, Workspace) }
+
+      it { should_not be_able_to(:create, Workspace) }
+
+      it { should_not be_able_to(:read, Workspace.new) }
+
+      it { should_not be_able_to(:update, Workspace.new) }
+
+      it { should_not be_able_to(:destroy, Workspace.new) }
+    end
   end
 
   context 'when is a user' do
@@ -89,6 +113,30 @@ describe Ability do
 
     describe 'managing versions' do
       it { should_not be_able_to(:index, PaperTrail::Version) }
+    end
+
+    describe 'managing rooms' do
+      it { should_not be_able_to(:index, Room) }
+
+      it { should_not be_able_to(:create, Room) }
+
+      it { should     be_able_to(:read, Room.new) }
+
+      it { should_not be_able_to(:update, Room.new) }
+
+      it { should_not be_able_to(:destroy, Room.new) }
+    end
+
+    describe 'managing workspaces' do
+      it { should_not be_able_to(:index, Workspace) }
+
+      it { should_not be_able_to(:create, Workspace) }
+
+      it { should     be_able_to(:read, Workspace.new) }
+
+      it { should_not be_able_to(:update, Workspace.new) }
+
+      it { should_not be_able_to(:destroy, Workspace.new) }
     end
   end
 
@@ -136,6 +184,30 @@ describe Ability do
     describe 'managing versions' do
       it { should be_able_to(:index, PaperTrail::Version) }
     end
+
+    describe 'managing rooms' do
+      it { should be_able_to(:index, Room) }
+
+      it { should be_able_to(:create, Room) }
+
+      it { should be_able_to(:read, Room.new) }
+
+      it { should be_able_to(:update, Room.new) }
+
+      it { should be_able_to(:destroy, Room.new) }
+    end
+
+    describe 'managing workspaces' do
+      it { should be_able_to(:index, Workspace) }
+
+      it { should be_able_to(:create, Workspace) }
+
+      it { should be_able_to(:read, Workspace.new) }
+
+      it { should be_able_to(:update, Workspace.new) }
+
+      it { should be_able_to(:destroy, Workspace.new) }
+    end
   end
 
   context 'when is an admin' do
@@ -180,6 +252,30 @@ describe Ability do
 
     describe 'managing versions' do
       it { should be_able_to(:index, PaperTrail::Version) }
+    end
+
+    describe 'managing rooms' do
+      it { should be_able_to(:index, Room) }
+
+      it { should be_able_to(:create, Room) }
+
+      it { should be_able_to(:read, Room.new) }
+
+      it { should be_able_to(:update, Room.new) }
+
+      it { should be_able_to(:destroy, Room.new) }
+    end
+
+    describe 'managing workspaces' do
+      it { should be_able_to(:index, Workspace) }
+
+      it { should be_able_to(:create, Workspace) }
+
+      it { should be_able_to(:read, Workspace.new) }
+
+      it { should be_able_to(:update, Workspace.new) }
+
+      it { should be_able_to(:destroy, Workspace.new) }
     end
   end
 end
