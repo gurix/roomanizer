@@ -36,8 +36,8 @@ class Ability
     alias_action :index, :create, :read, :update, :destroy, to: :crud
   end
 
-  def define_abilities_for_guests(current_user)
-    can :read,  Page
+  def define_abilities_for_guests(_current_user)
+    can :read, Page
 
     can :create, User
   end
@@ -45,7 +45,7 @@ class Ability
   def define_abilities_for_users(current_user)
     can :read, Page
 
-    can [:index, :read], User
+    can %i[index read], User
     can(:update, User) { |user| user == current_user }
 
     can :read, Room
@@ -53,15 +53,15 @@ class Ability
   end
 
   def define_abilities_for_editors(current_user)
-    can [:index, :read], Code
-    can [:index, :read], Image
+    can %i[index read], Code
+    can %i[index read], Image
 
     can :crud, Page
 
-    can [:index, :read], User
-    can([:update, :destroy], User) { |user| user == current_user }
+    can %i[index read], User
+    can(%i[update destroy], User) { |user| user == current_user }
 
-    can [:index, :read], PaperTrail::Version
+    can %i[index read], PaperTrail::Version
 
     can :crud, Room
     can :crud, Workspace
@@ -72,15 +72,15 @@ class Ability
       user != current_user
     end
 
-    can [:index, :read], Code
-    can [:index, :read], Image
+    can %i[index read], Code
+    can %i[index read], Image
 
     can :crud, Page
 
-    can [:index, :create, :read, :update], User
+    can %i[index create read update], User
     can(:destroy, User) { |user| user != current_user }
 
-    can [:index, :read], PaperTrail::Version
+    can %i[index read], PaperTrail::Version
 
     can :crud, Room
     can :crud, Workspace
