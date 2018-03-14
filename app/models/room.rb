@@ -1,4 +1,4 @@
 class Room < ApplicationRecord
-  validates :title, presence: true
+  validates :title, :floor_id, presence: true
   belongs_to :floor
 end

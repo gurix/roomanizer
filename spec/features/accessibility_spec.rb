@@ -45,13 +45,13 @@ describe 'Accessibility' do
       expect(page).to have_title 'Welcome to Base!'
 
       visit page_path(create :page, creator: create(:user))
-      expect(page).to have_title 'Page test title - Base'
+      expect(page).to have_title 'Page test title - Desksharing'
     end
 
     it 'prepends flash messages' do
       visit new_user_registration_path
       click_button 'Sign up'
-      expect(page).to have_title 'Alert: User could not be created. Sign up - Base'
+      expect(page).to have_title 'Alert: User could not be created. Sign up - Desksharing'
     end
   end
 end

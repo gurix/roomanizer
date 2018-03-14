@@ -4,9 +4,9 @@ describe 'Signing up' do
   it 'signs up a new user' do
     visit new_user_registration_path
 
-    expect(page).to have_title 'Sign up - Base'
+    expect(page).to have_title 'Sign up - Desksharing'
     expect(page).to have_active_navigation_items 'Sign up'
-    expect(page).to have_breadcrumbs 'Base', 'Sign up'
+    expect(page).to have_breadcrumbs 'Desksharing', 'Sign up'
     expect(page).to have_headline 'Sign up'
 
     expect(page).to have_css 'legend h2', text: 'Account information'

@@ -11,7 +11,7 @@ describe 'Navigation' do
         visit root_path
 
         within 'nav' do
-          expect(page).to have_link 'Base'
+          expect(page).to have_link 'Desksharing'
 
           within '#content_navigation' do
             expect(page).to have_link 'Page test navigation title'
@@ -38,7 +38,7 @@ describe 'Navigation' do
         visit root_path
 
         within 'nav' do
-          expect(page).to have_link 'Base'
+          expect(page).to have_link 'Desksharing'
 
           within '#content_navigation' do
             expect(page).to have_link 'Page test navigation title'
@@ -65,7 +65,7 @@ describe 'Navigation' do
         visit root_path
 
         within 'nav' do
-          expect(page).to have_link 'Base'
+          expect(page).to have_link 'Desksharing'
 
           within '#content_navigation' do
             expect(page).to have_link 'Page test navigation title'
@@ -92,7 +92,7 @@ describe 'Navigation' do
         visit root_path
 
         within 'nav' do
-          expect(page).to have_link 'Base'
+          expect(page).to have_link 'Desksharing'
 
           within '#content_navigation' do
             expect(page).to have_link 'Page test navigation title'

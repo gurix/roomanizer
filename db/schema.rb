@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313154742) do
+ActiveRecord::Schema.define(version: 20180314110643) do
 
   create_table "buildings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180313154742) do
     t.bigint "campus_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lock_version", default: 0
     t.index ["campus_id"], name: "index_buildings_on_campus_id"
   end
 
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180313154742) do
     t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lock_version", default: 0
     t.index ["location_id"], name: "index_campuses_on_location_id"
   end
 
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180313154742) do
     t.bigint "building_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lock_version", default: 0
     t.index ["building_id"], name: "index_floors_on_building_id"
   end
 
@@ -73,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180313154742) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lock_version", default: 0
   end
 
   create_table "pages", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -99,6 +103,7 @@ ActiveRecord::Schema.define(version: 20180313154742) do
     t.bigint "floor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lock_version", default: 0
     t.index ["floor_id"], name: "index_rooms_on_floor_id"
   end
 
@@ -154,6 +159,7 @@ ActiveRecord::Schema.define(version: 20180313154742) do
     t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lock_version", default: 0
     t.index ["room_id"], name: "index_workspaces_on_room_id"
   end
 

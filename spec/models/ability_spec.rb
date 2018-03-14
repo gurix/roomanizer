@@ -116,7 +116,7 @@ describe Ability do
     end
 
     describe 'managing rooms' do
-      it { should_not be_able_to(:index, Room) }
+      it { should be_able_to(:index, Room) }
 
       it { should_not be_able_to(:create, Room) }
 

@@ -48,7 +48,7 @@ class Ability
     can %i[index read], User
     can(:update, User) { |user| user == current_user }
 
-    can :read, Room
+    can %i[index read], Room
     can :read, Workspace
   end
 

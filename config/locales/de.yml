@@ -1,9 +1,9 @@
 ---
 de:
   app:
-    acronym: Raumreservation
-    name: Raumreservation
-    slogan: Prototype of a Room Managment System for the Institute of Applied Psychologie ZHAW
+    acronym: Desksharing
+    name: Desksharing
+    slogan: Prototype of a Desksharing Managment System for the Institute of Applied Psychologie ZHAW
   buttons:
     save: Speichern
   'false': Nein
@@ -67,3 +67,6 @@ de:
       account_information: Konto Informationen
     form:
       password: Passwort
+  rooms:
+    form:
+      room_information: Rauminformation

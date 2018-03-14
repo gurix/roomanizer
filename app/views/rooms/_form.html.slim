@@ -1,0 +1,15 @@
+= simple_form_for room, html:    {class: 'form-horizontal'},
+                        wrapper: :horizontal_form do |f|
+
+  == render 'shared/form/stale_info', f: f
+
+  = panel do |panel|
+    = panel.heading do
+      = t('.room_information')
+
+    = panel.body do
+      = f.association :floor, label_method: :full_name
+      = f.input :title
+
+
+  == render 'shared/form/actions', form: f, resource: @room

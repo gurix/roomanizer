@@ -1,0 +1,12 @@
+= container_for @room do
+  = headline_with_flash @room.title
+
+  dl.dl-horizontal
+    dt = Room.human_attribute_name :title
+    dd.title = @room.title
+    dt = Room.human_attribute_name :created_at
+    dd.created_at = l @room.created_at
+    dt = Room.human_attribute_name :updated_at
+    dd.updated_at = l @room.updated_at
+    
+  == render 'shared/show/actions', resource: @room

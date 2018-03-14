@@ -68,7 +68,7 @@ describe PageTitleAndHeadlineHelper do
         helper.title_tag
       end
 
-      it { should eq '<title>This is the title - Base</title>' }
+      it { should eq '<title>This is the title - Desksharing</title>' }
     end
 
     context 'with flash' do
@@ -79,7 +79,7 @@ describe PageTitleAndHeadlineHelper do
         helper.title_tag
       end
 
-      it { should eq '<title>Alert: This is an alert! Notice: This is a notice! This is the title - Base</title>' }
+      it { should eq '<title>Alert: This is an alert! Notice: This is a notice! This is the title - Desksharing</title>' }
     end
 
     context 'with prefixes' do
@@ -90,7 +90,7 @@ describe PageTitleAndHeadlineHelper do
         helper.title_tag
       end
 
-      it { should eq '<title>This is another prefix - This is a first prefix - This is the title - Base</title>' }
+      it { should eq '<title>This is another prefix - This is a first prefix - This is the title - Desksharing</title>' }
     end
   end
 end
