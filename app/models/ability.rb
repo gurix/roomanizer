@@ -50,6 +50,9 @@ class Ability
 
     can %i[index read], Room
     can :read, Workspace
+
+    can %i[index read create], Booking
+    can(%i[update destroy], Booking) { |booking| booking.organisator == current_user }
   end
 
   def define_abilities_for_editors(current_user)
@@ -65,6 +68,7 @@ class Ability
 
     can :crud, Room
     can :crud, Workspace
+    can :crud, Booking
   end
 
   def define_abilities_for_admins(current_user)
@@ -84,5 +88,6 @@ class Ability
 
     can :crud, Room
     can :crud, Workspace
+    can :crud, Booking
   end
 end

@@ -53,6 +53,11 @@ en:
       room:
         floor: Floor
         title: Title
+      booking:
+        bookable:
+          one: Location
+          other: Locations
+
     models:
       code:
         one: Code
@@ -75,3 +80,13 @@ en:
       floor:
         one: Floor
         other: Floors
+      booking:
+        one: Booking
+        other: Bookings
+
+    errors:
+      models:
+        booking:
+          attributes:
+            bookable:
+              not_available: not available for that time

@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314110643) do
+ActiveRecord::Schema.define(version: 20180315090601) do
+
+  create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.string "bookable_type"
+    t.bigint "bookable_id"
+    t.bigint "organisator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookable_type", "bookable_id"], name: "index_bookings_on_bookable_type_and_bookable_id"
+    t.index ["organisator_id"], name: "index_bookings_on_organisator_id"
+  end
+
+  create_table "bookings_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "booking_id"
+    t.bigint "user_id"
+    t.index ["booking_id"], name: "index_bookings_users_on_booking_id"
+    t.index ["user_id"], name: "index_bookings_users_on_user_id"
+  end
 
   create_table "buildings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title", null: false

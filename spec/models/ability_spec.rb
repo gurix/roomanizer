@@ -69,6 +69,18 @@ describe Ability do
 
       it { should_not be_able_to(:destroy, Workspace.new) }
     end
+
+    describe 'managing bookings' do
+      it { should_not be_able_to(:index, Booking) }
+
+      it { should_not be_able_to(:create, Booking) }
+
+      it { should_not be_able_to(:read, Booking.new) }
+
+      it { should_not be_able_to(:update, Booking.new) }
+
+      it { should_not be_able_to(:destroy, Booking.new) }
+    end
   end
 
   context 'when is a user' do
@@ -137,6 +149,20 @@ describe Ability do
       it { should_not be_able_to(:update, Workspace.new) }
 
       it { should_not be_able_to(:destroy, Workspace.new) }
+    end
+
+    describe 'managing bookings' do
+      it { should     be_able_to(:index, Booking) }
+
+      it { should     be_able_to(:create, Booking) }
+
+      it { should     be_able_to(:read, Booking.new) }
+
+      it { should_not be_able_to(:update, Booking.new) }
+      it { should     be_able_to(:update, Booking.new(organisator: @user)) }
+
+      it { should_not be_able_to(:destroy, Booking.new) }
+      it { should     be_able_to(:destroy, Booking.new(organisator: @user)) }
     end
   end
 
@@ -208,6 +234,18 @@ describe Ability do
 
       it { should be_able_to(:destroy, Workspace.new) }
     end
+
+    describe 'managing bookings' do
+      it { should be_able_to(:index, Booking) }
+
+      it { should be_able_to(:create, Booking) }
+
+      it { should be_able_to(:read, Booking.new) }
+
+      it { should be_able_to(:update, Booking.new) }
+
+      it { should be_able_to(:destroy, Booking.new) }
+    end
   end
 
   context 'when is an admin' do
@@ -276,6 +314,18 @@ describe Ability do
       it { should be_able_to(:update, Workspace.new) }
 
       it { should be_able_to(:destroy, Workspace.new) }
+    end
+
+    describe 'managing bookings' do
+      it { should be_able_to(:index, Booking) }
+
+      it { should be_able_to(:create, Booking) }
+
+      it { should be_able_to(:read, Booking.new) }
+
+      it { should be_able_to(:update, Booking.new) }
+
+      it { should be_able_to(:destroy, Booking.new) }
     end
   end
 end

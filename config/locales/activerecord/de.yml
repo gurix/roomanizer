@@ -53,6 +53,11 @@ de:
       room:
         floor: Stockwerk
         title: Titel
+      booking:
+        bookable:
+          one: Ort
+          other: Orte
+
     models:
       code:
         one: Code
@@ -75,3 +80,13 @@ de:
       floor:
         one: Stockwerk
         other: Stockwerke
+      booking:
+        one: Buchung
+        other: Buchungen
+
+    errors:
+      models:
+        booking:
+          attributes:
+            bookable:
+              not_available: nicht verfügbar zu für diese Zeit
