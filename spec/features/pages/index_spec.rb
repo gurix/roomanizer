@@ -65,7 +65,7 @@ describe 'Listing pages' do
       expect(page).to have_css 'title', text: 'Page test title'
 
       within 'content' do
-        expect(page).to have_content '<ol><li><a href="/en">Base Project</a></li><li><a href="/en/pages/1">Page test navigation title</a></li><li><a href="/en/pages/2">Page test navigation title</a></li></ol>'
+        expect(page).to have_content '<ol><li><a href="/en">Desksharing</a></li><li><a href="/en/pages/1">Page test navigation title</a></li><li><a href="/en/pages/2">Page test navigation title</a></li></ol>'
       end
     end
   end
