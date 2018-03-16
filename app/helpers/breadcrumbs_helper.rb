@@ -4,8 +4,13 @@ module BreadcrumbsHelper
   def render_breadcrumbs
     @breadcrumbs.map do |breadcrumb|
       content_tag :li do
-        link_to breadcrumb[:target] do
-          truncate breadcrumb[:title], length: 30, separator: ' '
+        title = truncate breadcrumb[:title], length: 30, separator: ' '
+        if breadcrumb[:target].blank?
+          title
+        else
+          link_to breadcrumb[:target] do
+            title
+          end
         end
       end
     end.join.html_safe
