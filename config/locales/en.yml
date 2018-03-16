@@ -70,3 +70,6 @@ en:
   rooms:
     form:
       room_information: Room information
+  bookings:
+    form:
+      booking_information: Booking information

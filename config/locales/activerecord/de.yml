@@ -53,10 +53,16 @@ de:
       room:
         floor: Stockwerk
         title: Titel
+        created_at: Erstellt am
+        updated_at: Bearbeitet am
       booking:
         bookable:
           one: Ort
           other: Orte
+        start_at: Von
+        end_at: Bis
+        duration: Dauer
+        Organisator: Organisator
 
     models:
       code:
@@ -88,5 +94,7 @@ de:
       models:
         booking:
           attributes:
-            bookable:
-              not_available: nicht verfügbar zu für diese Zeit
+            start_at:
+              not_available: reserviert ab %{time}
+            end_at:
+              not_available: reserviert bis %{time}

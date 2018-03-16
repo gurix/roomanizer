@@ -26,6 +26,7 @@ class RoomsController < ApplicationController
   end
 
   private
+
   def room_params
     params.require(:room).permit(:title, :floor_id, :lock_version)
   end
@@ -33,8 +34,8 @@ class RoomsController < ApplicationController
   def add_breadcrumbs
     add_breadcrumb Room.model_name.human(count: :other), rooms_path
 
-    add_breadcrumb @room.title,        user_path(@room)     if [:show, :edit, :update].include? action_name.to_sym
-    add_breadcrumb t('actions.new'),  new_user_path         if [:new,  :create].include?        action_name.to_sym
-    add_breadcrumb t('actions.edit'), edit_user_path(@room) if [:edit, :update].include?        action_name.to_sym
+    add_breadcrumb @room.title,       room_path(@room)      if [:show, :edit, :update].include? action_name.to_sym
+    add_breadcrumb t('actions.new'),  new_room_path         if [:new,  :create].include?        action_name.to_sym
+    add_breadcrumb t('actions.edit'), edit_room_path(@room) if [:edit, :update].include?        action_name.to_sym
   end
 end

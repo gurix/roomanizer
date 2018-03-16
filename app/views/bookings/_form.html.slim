@@ -1,0 +1,14 @@
+= simple_form_for [booking.bookable, booking], html:    {class: 'form-horizontal'},
+                        wrapper: :horizontal_form do |f|
+
+
+  = panel do |panel|
+    = panel.heading do
+      = t('.booking_information')
+
+    = panel.body do
+      = f.input :start_at
+      = f.input :end_at
+
+
+  == render 'bookings/form/actions', form: f, resource: booking, belongs_to: booking.bookable

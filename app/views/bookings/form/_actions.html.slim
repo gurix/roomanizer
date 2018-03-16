@@ -1,0 +1,13 @@
+.actions
+  *{tag: "h#{heading_level ||= 2}"} class='sr-only' = t 'actions.actions'
+
+  .btn-group
+    = form.button :submit, class: 'btn btn-primary'
+
+    - if resource.persisted?
+      = link_to t('actions.destroy_resource', resource: resource.model_name.human), [belongs_to, resource],
+          method: :delete,
+          class: 'btn btn-danger',
+          data: { confirm:  t('actions.destroy_resource_confirmation_question',
+                  resource: resource.model_name.human,
+                  id: resource.id) }

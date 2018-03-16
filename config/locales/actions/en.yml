@@ -19,3 +19,4 @@ en:
     show_resource_with_id: "%{resource} #%{id}"
     toggle: Toggle view
     toggle_dropdown: Toggle dropdown
+    booking: Booking

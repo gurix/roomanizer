@@ -19,3 +19,4 @@ de:
     show_resource_with_id: "%{resource} #%{id}"
     toggle: Ansicht umschalten
     toggle_dropdown: Menü umschalten
+    booking: Buchung

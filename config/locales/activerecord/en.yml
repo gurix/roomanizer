@@ -53,10 +53,15 @@ en:
       room:
         floor: Floor
         title: Title
+
       booking:
         bookable:
           one: Location
           other: Locations
+          start_at: From
+          end_at: To
+          duration: Duration
+          Organisator: Organisator
 
     models:
       code:
@@ -88,5 +93,7 @@ en:
       models:
         booking:
           attributes:
-            bookable:
-              not_available: not available for that time
+            start_at:
+              not_available: reserved from %{time}
+            end_at:
+              not_available: reserved until %{time}

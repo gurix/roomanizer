@@ -8,5 +8,6 @@
     dd.created_at = l @room.created_at
     dt = Room.human_attribute_name :updated_at
     dd.updated_at = l @room.updated_at
-    
+
   == render 'shared/show/actions', resource: @room
+  == render 'shared/show/booking', resource: @room
