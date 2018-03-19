@@ -60,10 +60,10 @@ en:
         bookable:
           one: Location
           other: Locations
-          start_at: From
-          end_at: To
-          duration: Duration
-          organisator: Organisator
+        start_at: From
+        end_at: To
+        duration: Duration
+        organisator: Organisator
 
     models:
       code:

@@ -59,10 +59,10 @@ de:
         bookable:
           one: Ort
           other: Orte
-          start_at: Von
-          end_at: Bis
-          duration: Dauer
-          organisator: Organisator
+        start_at: Von
+        end_at: Bis
+        duration: Dauer
+        organisator: Organisator
 
     models:
       code:
