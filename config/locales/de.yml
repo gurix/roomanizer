@@ -61,6 +61,7 @@ de:
         update: Aktualisieren
       versions:
         no_changes: Keine Änderungen in dieser Version
+    index:
       booking:
         booked: "Gebucht von %{organisator} bis %{until}."
   'true': Ja
@@ -76,3 +77,6 @@ de:
   bookings:
     form:
       booking_information: Informationen zur Buchung
+  workspaces:
+    form:
+      workspace_information: Informationen zum Arbeitsplatz

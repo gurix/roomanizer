@@ -1,0 +1,6 @@
+tr id=dom_id(workspace)
+  th.title  = link_to workspace.title, workspace
+  th.room = link_to workspace.room.title, workspace.room
+
+  td.actions
+    == render 'shared/index/actions', resource: workspace

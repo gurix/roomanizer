@@ -10,4 +10,24 @@
     dd.updated_at = l @room.updated_at
 
   == render 'shared/show/actions', resource: @room
-  == render 'shared/show/booking', resource: @room
+  = panel do |panel|
+    = panel.heading do
+      = Workspace.model_name.human(count: 2)
+
+    = panel.body do
+      - if @room.workspaces.any?
+        table.table
+          tr
+            th = Workspace.human_attribute_name(:title)
+            th = t 'actions.actions'
+          - @room.workspaces.each do | workspace |
+            tr id="#{dom_id(workspace)}"
+              td = link_to workspace.title, workspace
+              td
+                == render 'shared/index/actions', resource: workspace
+
+      - if can? :create, Workspace
+        = link_to polymorphic_path([:new, :workspace], room_id: @room, location: request.path), class: 'btn btn-success' do
+          = icon(:plus, type: :fa)
+          =< t('actions.new_resource', resource: Workspace.model_name.human)
+  == render 'shared/index/booking', resource: @room

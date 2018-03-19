@@ -64,6 +64,8 @@ en:
         end_at: To
         duration: Duration
         organisator: Organisator
+      workspace:
+        title: Title
 
     models:
       code:
@@ -90,6 +92,9 @@ en:
       booking:
         one: Booking
         other: Bookings
+      workspace:
+        one: Workspace
+        other: Workspaces
 
     errors:
       models:

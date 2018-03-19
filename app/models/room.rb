@@ -1,6 +1,7 @@
 class Room < ApplicationRecord
   belongs_to :floor
   has_many :bookings, as: :bookable
+  has_many :workspaces
 
   validates :title, presence: true
 

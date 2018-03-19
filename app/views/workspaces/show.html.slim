@@ -1,0 +1,17 @@
+= container_for @workspace do
+  = headline_with_flash @workspace.title
+
+  dl.dl-horizontal
+    dt = Workspace.human_attribute_name :title
+    dd.title = @workspace.title
+    dt = Workspace.human_attribute_name :room
+    dd.room = link_to @workspace.room.title,  @workspace.room
+    dt = Workspace.human_attribute_name :created_at
+    dd.created_at = l @workspace.created_at
+    dt = Workspace.human_attribute_name :updated_at
+    dd.updated_at = l @workspace.updated_at
+
+  = render 'images/images', images: @workspace.images
+
+  == render 'shared/show/actions', resource: @workspace
+  == render 'shared/index/booking', resource: @workspace

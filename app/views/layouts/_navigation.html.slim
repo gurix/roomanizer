@@ -32,6 +32,7 @@ nav#navigation.container
 
         ul#meta_navigation.nav.navbar-nav.navbar-right
           == render 'layouts/resource_navigation_group', resource_class: Room if can? :index, Room
+          == render 'layouts/resource_navigation_group', resource_class: Workspace if can? :index, Workspace
           == render 'layouts/resource_navigation_group', resource_class: Page if can? :index, Page
           == render 'layouts/resource_navigation_group', resource_class: User if can? :index, User
 

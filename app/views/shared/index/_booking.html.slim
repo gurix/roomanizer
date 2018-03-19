@@ -1,0 +1,34 @@
+- if can? :read, Booking
+  .booking
+    = panel do |panel|
+      = panel.heading do
+        = t 'actions.booking'
+
+      = panel.body do
+        - next_bookings = resource.next_bookings
+        - actual_booking = resource.actual_booking
+        - if actual_booking.count == 1
+          p.text-danger= t('.booked', organisator: actual_booking.first.organisator.name, until: l(actual_booking.first.end_at, format: :short))
+
+        - if next_bookings.any?
+          table.table
+            tr
+              th = Booking.human_attribute_name(:start_at)
+              th = Booking.human_attribute_name(:end_at)
+              th = Booking.human_attribute_name(:duration)
+              th = Booking.human_attribute_name(:organisator)
+              th = t('actions.actions')
+            - next_bookings.each do | booking |
+              tr id="#{dom_id(booking)}"
+                td = l(booking.start_at, format: :short)
+                td = l(booking.end_at, format: :short)
+                /td = t 'shared.hours', hours: ((booking.end_at - booking.start_at) / 1.hour).round
+                td = distance_of_time_in_words((booking.end_at - booking.start_at))
+                td = booking.organisator.name
+                td
+                  == render 'shared/index/actions', resource: booking, belongs_to: resource
+
+        - if can? :create, Booking
+          = link_to [:new, belongs_to ||= nil, resource, :booking], class: 'btn btn-success' do
+            = icon(:plus, type: :fa)
+            =< t('actions.new_resource', resource: Booking.model_name.human)

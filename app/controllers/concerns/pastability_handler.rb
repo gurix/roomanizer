@@ -54,7 +54,7 @@ module PastabilityHandler
 
   def assign_creator_to_new_pastables
     [:images, :codes].each do |pastables|
-      resource.send(pastables).select(&:new_record?).each { |pastable| pastable.creator = current_user }
+      resource.send(pastables).select(&:new_record?).each { |pastable| pastable.creator = current_user } if resource.respond_to? pastables
     end
   end
 

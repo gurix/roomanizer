@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
   before_action :set_bookable
   before_action :add_breadcrumbs
 
-
   respond_to :html
 
   def create
@@ -39,7 +38,7 @@ class BookingsController < ApplicationController
   def add_breadcrumbs
     add_breadcrumb @booking.bookable.model_name.human(count: :other), rooms_path
 
-    add_breadcrumb @booking.bookable.title, @booking.bookable
+    add_breadcrumb @booking.bookable.title, nil
     add_breadcrumb @booking.model_name.human, nil
     add_breadcrumb t('actions.new'),  [:new, @booking.bookable, :booking] if [:new,  :create].include? action_name.to_sym
     add_breadcrumb t('actions.edit'), [:edit, @booking.bookable, @booking] if [:edit, :update].include? action_name.to_sym

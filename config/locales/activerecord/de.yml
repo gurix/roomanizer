@@ -63,6 +63,11 @@ de:
         end_at: Bis
         duration: Dauer
         organisator: Organisator
+      workspace:
+        title: Bezeichnung
+        room: Raum
+        created_at: Erstellt am
+        updated_at: Bearbeitet am
 
     models:
       code:
@@ -89,6 +94,9 @@ de:
       booking:
         one: Buchung
         other: Buchungen
+      workspace:
+        one: Arbeitsplatz
+        other: Arbeitsplätze
 
     errors:
       models:
