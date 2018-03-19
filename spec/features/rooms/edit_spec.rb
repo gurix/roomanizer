@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Editing user' do
+describe 'Editing room' do
   before do
     @room = create :room, :with_floor
     @user = create :user

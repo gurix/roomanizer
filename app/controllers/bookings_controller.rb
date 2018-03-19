@@ -19,6 +19,12 @@ class BookingsController < ApplicationController
     respond_with @booking, location: @booking.bookable
   end
 
+  def destroy
+    bookabel = @booking.bookable
+    @booking.destroy
+    respond_with @booking, location: bookabel
+  end
+
   private
 
   def booking_params

@@ -8,9 +8,8 @@ module Base
       def matches?(controller)
         @breadcrumbs.each_with_index do |breadcrumb, index|
           index += 1
-          a = ' a' unless index == @breadcrumbs.size
 
-          selector = "#breadcrumbs li:nth-child(#{index})#{a}"
+          selector = "#breadcrumbs li:nth-child(#{index})"
           unless controller.has_css? selector, text: breadcrumb
             @failure_index = index
             @failure_breadcrumb = breadcrumb

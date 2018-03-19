@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Deleting room' do
   before { @room = create :room, :with_floor }
 
-  context 'signed in as room' do
+  context 'signed in as user' do
     before { login_as(create :user) }
 
     it 'does not grant permission to delete own room' do

@@ -61,6 +61,8 @@ en:
         update: Update
       versions:
         no_changes: No changes in this version
+      booking:
+        booked: "Booked from %{organisator} until %{until}."
   'true': 'Yes'
   users:
     detail_inputs:

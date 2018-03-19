@@ -53,6 +53,8 @@ en:
       room:
         floor: Floor
         title: Title
+        created_at: Created at
+        updated_at: Updated at
 
       booking:
         bookable:
@@ -61,7 +63,7 @@ en:
           start_at: From
           end_at: To
           duration: Duration
-          Organisator: Organisator
+          organisator: Organisator
 
     models:
       code:

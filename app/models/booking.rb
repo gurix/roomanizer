@@ -14,7 +14,7 @@ class Booking < ApplicationRecord
   def availability_start
     conflicting_bookings = other_bookings.where('start_at BETWEEN ? AND ?', start_at, end_at)
     errors.add(:start_at, I18n.t('activerecord.errors.models.booking.attributes.start_at.not_available',
-      time: I18n.l(conflicting_bookings.first.start_at))) if conflicting_bookings.count > 0
+      time: I18n.l(conflicting_bookings.first.start_at, format: :short))) if conflicting_bookings.count > 0
   end
 
   # Checks whether there is an end from another booking in between
@@ -22,7 +22,7 @@ class Booking < ApplicationRecord
     # Query for bookings ending in the requestet time period
     conflicting_bookings = other_bookings.where('end_at BETWEEN ? AND ?', start_at, end_at)
     errors.add(:end_at, I18n.t('activerecord.errors.models.booking.attributes.end_at.not_available',
-      time: I18n.l(conflicting_bookings.first.end_at))) if conflicting_bookings.count > 0
+      time: I18n.l(conflicting_bookings.first.end_at, format: :short))) if conflicting_bookings.count > 0
   end
 
   # Checks whether there is a start and an end from another booking in between
@@ -31,9 +31,9 @@ class Booking < ApplicationRecord
     conflicting_bookings = other_bookings.where('start_at <= ? AND end_at >= ?', start_at, end_at)
     if conflicting_bookings.count > 0
       errors.add(:start_at, I18n.t('activerecord.errors.models.booking.attributes.start_at.not_available',
-        time: I18n.l(conflicting_bookings.first.start_at)))
+        time: I18n.l(conflicting_bookings.first.start_at, format: :short)))
       errors.add(:end_at, I18n.t('activerecord.errors.models.booking.attributes.end_at.not_available',
-        time: I18n.l(conflicting_bookings.first.end_at)))
+        time: I18n.l(conflicting_bookings.first.end_at, format: :short)))
     end
   end
 

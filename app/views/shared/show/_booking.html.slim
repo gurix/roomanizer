@@ -7,7 +7,7 @@
     - if actual_booking.count == 1
 
       .alert.alert-danger
-        .text-danger= t('.booked', organisator: actual_booking.first.organisator.name, until: l(actual_booking.first.end_at))
+        .text-danger= t('.booked', organisator: actual_booking.first.organisator.name, until: l(actual_booking.first.end_at, format: :short))
 
     - if next_bookings.any?
       table.table
@@ -18,9 +18,9 @@
           th = Booking.human_attribute_name(:organisator)
           th = t('actions.actions')
         - next_bookings.each do | booking |
-          tr
-            td = l(booking.start_at)
-            td = l(booking.end_at)
+          tr id="#{dom_id(booking)}"
+            td = l(booking.start_at, format: :short)
+            td = l(booking.end_at, format: :short)
             /td = t 'shared.hours', hours: ((booking.end_at - booking.start_at) / 1.hour).round
             td = distance_of_time_in_words((booking.end_at - booking.start_at))
             td = booking.organisator.name

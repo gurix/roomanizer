@@ -63,7 +63,6 @@ de:
         no_changes: Keine Änderungen in dieser Version
       booking:
         booked: "Gebucht von %{organisator} bis %{until}."
-    hours: "%{hours} Stunden"
   'true': Ja
   users:
     detail_inputs:
