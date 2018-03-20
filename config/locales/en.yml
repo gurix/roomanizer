@@ -76,3 +76,6 @@ en:
   bookings:
     form:
       booking_information: Booking information
+  workspaces:
+    form:
+      workspace_information: Workspace information

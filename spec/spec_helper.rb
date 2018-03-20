@@ -72,6 +72,8 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.example_status_persistence_file_path = 'examples.txt'
+
   # At the moment we only provide test in english
   config.before(:each) do
     I18n.default_locale = :en

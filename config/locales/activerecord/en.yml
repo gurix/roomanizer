@@ -60,12 +60,16 @@ en:
         bookable:
           one: Location
           other: Locations
-        start_at: From
-        end_at: To
+        start_at: Start at
+        end_at: End at
         duration: Duration
         organisator: Organisator
       workspace:
         title: Title
+        room: Room
+        created_at: Created at
+        updated_at: Updated at
+
 
     models:
       code:
