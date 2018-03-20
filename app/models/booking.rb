@@ -39,6 +39,8 @@ class Booking < ApplicationRecord
 
   # Filter for all bookings for a given resource not beeing itself
   def other_bookings
-    self.class.where(bookable: bookable).where.not(id: id)
+    base = bookable_type == 'Workspace' ? bookable.room : bookable
+    rooms_and_workspaces = (base && base.workspaces.any?) ? base.workspaces.to_a.push(base) : base
+    self.class.where(bookable: rooms_and_workspaces).where.not(id: id)
   end
 end

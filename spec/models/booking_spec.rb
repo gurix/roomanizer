@@ -14,7 +14,10 @@ RSpec.describe Booking do
   end
 
   describe 'availability' do
-    before { @room = create :room, bookings:[ Booking.new(start_at: Time.now + 1.hour, end_at: Time.now + 3.hour) ]}
+    before do
+      @room = create :room, bookings:[ Booking.new(start_at: Time.now + 1.hour, end_at: Time.now + 3.hour) ]
+      @workspace = create :workspace, room: @room, bookings:[ Booking.new(start_at: Time.now + 10.hour, end_at: Time.now + 13.hour) ]
+    end
 
     it 'raises an error if there is a start from another booking in between' do
       valid_booking = Booking.new(bookable: @room, start_at: Time.now - 2.hours, end_at: Time.now - 1.hours)
@@ -23,6 +26,15 @@ RSpec.describe Booking do
       invalid_booking = Booking.new(bookable: @room, start_at: Time.now + 30.minutes, end_at: Time.now + 2.hours)
       expect(invalid_booking).not_to be_valid
       expect(invalid_booking.errors.full_messages).to include('Start at reserved from 15 Jun 15:33')
+
+      invalid_booking = Booking.new(bookable: @room, start_at: Time.now + 9.hours, end_at: Time.now + 12.hours)
+      expect(invalid_booking).not_to be_valid
+      expect(invalid_booking.errors.full_messages).to include('Start at reserved from 16 Jun 00:33')
+
+      invalid_booking = Booking.new(bookable: @workspace, start_at: Time.now + 30.minutes, end_at: Time.now + 2.hours)
+      expect(invalid_booking).not_to be_valid
+      expect(invalid_booking.errors.full_messages).to include('Start at reserved from 15 Jun 15:33')
+
     end
 
     it 'raises an error if there is an end from another booking in between' do
@@ -30,6 +42,14 @@ RSpec.describe Booking do
       expect(valid_booking).to be_valid
 
       invalid_booking = Booking.new(bookable: @room, start_at: Time.now + 2.hours, end_at: Time.now + 4.hours)
+      expect(invalid_booking).not_to be_valid
+      expect(invalid_booking.errors.full_messages).to include('End at reserved until 15 Jun 17:33')
+
+      invalid_booking = Booking.new(bookable: @room, start_at: Time.now + 11.hours, end_at: Time.now + 14.hours)
+      expect(invalid_booking).not_to be_valid
+      expect(invalid_booking.errors.full_messages).to include('End at reserved until 16 Jun 03:33')
+
+      invalid_booking = Booking.new(bookable: @workspace, start_at: Time.now + 2.hours, end_at: Time.now + 4.hours)
       expect(invalid_booking).not_to be_valid
       expect(invalid_booking.errors.full_messages).to include('End at reserved until 15 Jun 17:33')
     end
@@ -42,6 +62,16 @@ RSpec.describe Booking do
       expect(invalid_booking).not_to be_valid
       expect(invalid_booking.errors.full_messages).to include('Start at reserved from 15 Jun 15:33')
       expect(invalid_booking.errors.full_messages).to include('End at reserved until 15 Jun 17:33')
+
+      invalid_booking = Booking.new(bookable: @room, start_at: Time.now + 10.hours, end_at: Time.now + 14.hours)
+      expect(invalid_booking).not_to be_valid
+      expect(invalid_booking.errors.full_messages).to include('Start at reserved from 16 Jun 00:33')
+      expect(invalid_booking.errors.full_messages).to include('End at reserved until 16 Jun 03:33')
+
+      invalid_booking = Booking.new(bookable: @workspace, start_at: Time.now + 30.minutes, end_at: Time.now + 4.hours)
+      expect(invalid_booking).not_to be_valid
+      expect(invalid_booking.errors.full_messages).to include('Start at reserved from 15 Jun 15:33')
+      expect(invalid_booking.errors.full_messages).to include('End at reserved until 15 Jun 17:33')
     end
 
     it 'raises an error if it is between another booking' do
@@ -49,6 +79,16 @@ RSpec.describe Booking do
       expect(valid_booking).to be_valid
 
       invalid_booking = Booking.new(bookable: @room, start_at: Time.now + 1.hour + 30.minutes, end_at: Time.now + 2.hours)
+      expect(invalid_booking).not_to be_valid
+      expect(invalid_booking.errors.full_messages).to include('Start at reserved from 15 Jun 15:33')
+      expect(invalid_booking.errors.full_messages).to include('End at reserved until 15 Jun 17:33')
+
+      invalid_booking = Booking.new(bookable: @room, start_at: Time.now + 11.hours, end_at: Time.now + 12.hours)
+      expect(invalid_booking).not_to be_valid
+      expect(invalid_booking.errors.full_messages).to include('Start at reserved from 16 Jun 00:33')
+      expect(invalid_booking.errors.full_messages).to include('End at reserved until 16 Jun 03:33')
+
+      invalid_booking = Booking.new(bookable: @workspace, start_at: Time.now + 1.hour + 30.minutes, end_at: Time.now + 2.hours)
       expect(invalid_booking).not_to be_valid
       expect(invalid_booking.errors.full_messages).to include('Start at reserved from 15 Jun 15:33')
       expect(invalid_booking.errors.full_messages).to include('End at reserved until 15 Jun 17:33')
