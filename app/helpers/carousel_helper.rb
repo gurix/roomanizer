@@ -1,6 +1,6 @@
 module CarouselHelper
   def carousel(id, images)
-    content_tag :div, id: id, class: ['carousel', 'slide'], data: {ride: 'carousel', interval: 7500} do
+    content_tag :div, id: id, class: ['carousel', 'slide'], data: {ride: 'carousel', interval: false} do
       carousel_indicators(id, images) +
       carousel_inner(images) +
       carousel_control_left(id) +
@@ -19,8 +19,8 @@ module CarouselHelper
   def carousel_inner(images)
     content_tag :div, class: 'carousel-inner' do
       images.each_with_index.map do |image, i|
-        content_tag :div, class: "item #{i == 0 ? 'active' : nil}", style: "background-image: url(#{image_path(image.first)})" do
-          image_tag(image.first, alt: image.last) + content_tag(:p, image.last)
+        content_tag :div, class: "item #{i == 0 ? 'active' : nil}" do
+          image_tag(image.file, alt: image.identifier, style: 'width: 100%') + content_tag(:p, image.identifier, class: 'text-center')
         end
       end.join.html_safe
     end
