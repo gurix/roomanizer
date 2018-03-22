@@ -1,3 +1,5 @@
+- image_fields_partial = (upload_only ||= local_assigns[:upload_only]) ? 'images/upload_fields' : 'images/image_fields'
+
 = panel do |panel|
   = panel.heading tag: "h#{heading_level ||= 2}" do
     = Image.model_name.human count: :other
@@ -5,8 +7,8 @@
   = panel.body do
     #images
       = f.simple_fields_for :images do |image|
-        = render 'images/image_fields', f: image
+        = render image_fields_partial, f: image
       p.links
-        = link_to_add_association f, :images, partial: 'images/image_fields' do
+        = link_to_add_association f, :images, partial: image_fields_partial do
           => fa_icon 'plus-circle'
           = t('actions.new_resource', resource: Image.model_name.human)

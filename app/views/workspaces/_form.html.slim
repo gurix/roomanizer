@@ -12,5 +12,5 @@
       = f.input :title
       = f.association :room
 
-  == render 'images/images_form', f: f, heading_level: heading_level ||= 2
+  == render 'images/images_form', f: f, heading_level: heading_level ||= 2, upload_only: true
   == render 'shared/form/actions', form: f, resource: workspace

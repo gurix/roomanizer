@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
   end
 
   def create
+    assign_creator_to_new_pastables
     @room.save
 
     respond_with @room
@@ -17,6 +18,9 @@ class RoomsController < ApplicationController
 
   def update
     @room.update(room_params)
+    assign_creator_to_new_pastables
+    @room.save
+    
     respond_with @room
   end
 
@@ -28,7 +32,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:title, :floor_id, :lock_version)
+    params.require(:room).permit(:title, :floor_id, :lock_version, images_attributes: images_attributes)
   end
 
   def add_breadcrumbs
