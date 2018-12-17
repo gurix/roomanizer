@@ -1,0 +1,21 @@
+table.table
+  caption = resource.model_name.human(count: :other)
+  tr
+    th = resource.model_name.human
+    th = t('.availability')
+  - resource.all.each do | r |
+      tr class="#{r.free? ? 'success' : 'danger'}"
+        td = r.title
+        td
+          - if r.free?
+            - free_until = r.free_until
+            - if free_until
+              - description = t('.free_until', in_words: distance_of_time_in_words(Time.now, r.free_until), date: l(r.free_until , format: :short))
+            - else
+              - description = t('.free')
+            - if can? :create, Booking
+              = link_to description, [:new, belongs_to ||= nil, r, :booking]
+            - else
+              = description
+          - else
+            = t('.occupied_until', in_words: distance_of_time_in_words(Time.now, r.free_from), date: l(r.free_from , format: :short))

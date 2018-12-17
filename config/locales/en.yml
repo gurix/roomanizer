@@ -32,6 +32,11 @@ en:
       notice_title: Notice about Atom feed
       position_in_hierarchy: Position in page hierarchy
   shared:
+    list_resources:
+      occupied_until: Occupied (%{in_words}, until %{date})
+      free_until: Free (%{in_words}, until %{date})
+      free: Free
+      availability: Availability
     diff:
       before_or_after:
         image_after: Image after
