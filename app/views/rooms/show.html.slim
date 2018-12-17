@@ -12,7 +12,7 @@
         dd.updated_at = l @room.updated_at
 
     .col-xs-12.col-md-6
-      = carousel 'images', @room.images
+      = carousel('images', @room.images) if @room.images.any?
 
   == render 'shared/show/actions', resource: @room
   = panel do |panel|
