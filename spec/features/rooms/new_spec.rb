@@ -11,7 +11,7 @@ describe 'Creating room' do
 
     expect(page).to have_title 'Create Room - Desksharing'
     expect(page).to have_active_navigation_items 'Rooms', 'Create Room'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Rooms', 'Create'
+    expect(page).to have_breadcrumbs 'Startpage', 'Rooms', 'Create'
     expect(page).to have_headline 'Create Room'
 
     expect(page).to have_css 'h2', text: 'Room information'

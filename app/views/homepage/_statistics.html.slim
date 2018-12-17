@@ -1,7 +1,12 @@
-h2.sr-only = t '.title'
+h2 = t '.title'
 
-table.table.table-striped.table-hover
+table.table
   tr
-    td aria-hidden="true" = icon :user
+    th = t '.number_of_resource', resource: Room.model_name.human(count: :other)
+    td = Room.count
+  tr
+    th = t '.number_of_resource', resource: Workspace.model_name.human(count: :other)
+    td = Workspace.count
+  tr
     th = t '.number_of_resource', resource: User.model_name.human(count: :other)
     td = User.count

@@ -8,7 +8,7 @@ describe 'Creating user' do
 
     expect(page).to have_title 'Create User - Desksharing'
     expect(page).to have_active_navigation_items 'Users', 'Create User'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Users', 'Create'
+    expect(page).to have_breadcrumbs 'Startpage', 'Users', 'Create'
     expect(page).to have_headline 'Create User'
 
     expect(page).to have_css 'h2', text: 'Account information'

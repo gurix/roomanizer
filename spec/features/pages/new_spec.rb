@@ -26,7 +26,7 @@ describe 'Creating page' do
 
     expect(page).to have_title 'Create Page - Desksharing'
     expect(page).to have_active_navigation_items 'Pages', 'Create Page'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Pages', 'Create'
+    expect(page).to have_breadcrumbs 'Startpage', 'Pages', 'Create'
     expect(page).to have_headline 'Create Page'
 
     expect(page).to have_css 'h2', text: 'Information about organising pages as tree hierarchy'

@@ -49,7 +49,7 @@ describe 'Editing user' do
 
       expect(page).to have_title 'Edit User test name - Desksharing'
       expect(page).to have_active_navigation_items 'Users'
-      expect(page).to have_breadcrumbs 'Desksharing', 'Users', 'User test name', 'Edit'
+      expect(page).to have_breadcrumbs 'Startpage', 'Users', 'User test name', 'Edit'
       expect(page).to have_headline 'Edit User test name'
 
       expect(page).to have_css 'h2', text: 'Account information'

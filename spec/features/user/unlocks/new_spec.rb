@@ -22,7 +22,7 @@ describe 'Requesting new unlock' do
 
     expect(page).to have_title 'Resend unlock instructions - Desksharing'
     expect(page).to have_active_navigation_items 'Sign up'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Sign up', 'Resend unlock instructions'
+    expect(page).to have_breadcrumbs 'Startpage', 'Sign up', 'Resend unlock instructions'
     expect(page).to have_headline 'Resend unlock instructions'
 
     within '.frequently_occuring_sign_in_problems' do

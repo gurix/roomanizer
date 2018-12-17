@@ -43,7 +43,7 @@ describe 'Signing in' do
 
       expect(page).to have_title 'Sign in - Desksharing'
       expect(page).to have_active_navigation_items 'Sign in'
-      expect(page).to have_breadcrumbs 'Desksharing', 'Sign in'
+      expect(page).to have_breadcrumbs 'Startpage', 'Sign in'
       expect(page).to have_headline 'Sign in'
 
       within '.frequently_occuring_sign_in_problems' do

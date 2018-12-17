@@ -13,7 +13,7 @@ describe 'Listing users' do
 
     expect(page).to have_title 'Users - Desksharing'
     expect(page).to have_active_navigation_items 'Users', 'List of Users'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Users'
+    expect(page).to have_breadcrumbs 'Startpage', 'Users'
     expect(page).to have_headline 'Users'
 
     expect(page).to have_css 'h2', text: 'Filter'

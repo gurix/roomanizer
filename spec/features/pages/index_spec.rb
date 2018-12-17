@@ -13,7 +13,7 @@ describe 'Listing pages' do
 
     expect(page).to have_title 'Pages - Desksharing'
     expect(page).to have_active_navigation_items 'Pages', 'List of Pages'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Pages'
+    expect(page).to have_breadcrumbs 'Startpage', 'Pages'
     expect(page).to have_headline 'Pages'
 
     within dom_id_selector(@page) do

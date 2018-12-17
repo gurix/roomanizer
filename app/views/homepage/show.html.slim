@@ -1,6 +1,27 @@
 / i18n-tasks-use t('.title')
-= headline_with_flash
-
 .row
-  .col-sm-8 == render 'news'
-  .col-sm-4 == render 'statistics'
+  .col-sm-8
+    = headline_with_flash
+
+    h2 Die Idee
+    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    h2 Nutzen – was bringt es?
+    strong Interdisziplinäre Zusammenarbeit
+    ul
+      li wird durch die verschiedene Raumnutzung gefördert.
+      li Neues kann entstehen bei flexibler/übergreifender Raum-/Arbeitsplatznutzung – alleine durch Begegnungen
+
+    strong Effizienzsteigernd/Kostenreduzierend
+    ul
+      li durch rasches auffinden und buchen des “richtigen“ Arbeitsplatzes
+      li durch Optimierung der Raumnutzung, kann die Fläche reduziert und die Effizienz beim einzelnen Mitarbeitenden gesteigert werden. Gelebt wird dieses Konzept, wenn es einfach umsetzbar ist, was durch diese App ermöglicht wird.
+
+    strong Zufriedenheit aller Mitarbeitende
+    p Individuell aktuelle Bedürfnisse können berücksichtigt werden. Wer ruhig arbeiten und keine Gespräche nebenbei mag, kann diesen Arbeitsplatz finden und nutzten. Umgekehrt ist es einfach möglich einen Raum für kreatives Arbeiten zu finden oder für ein Kundenmeeting.
+
+
+
+  .col-sm-4
+    == render 'news'
+    == render 'statistics'

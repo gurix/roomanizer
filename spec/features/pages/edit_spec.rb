@@ -31,7 +31,7 @@ describe 'Editing page' do
 
     expect(page).to have_title 'Edit Page test title - Desksharing'
     expect(page).to have_active_navigation_items 'Cool parent page', 'Cool navigation title'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Cool parent page', 'Cool navigation title', 'Edit'
+    expect(page).to have_breadcrumbs 'Startpage', 'Cool parent page', 'Cool navigation title', 'Edit'
     expect(page).to have_headline 'Edit Page test title'
 
     expect(page).to have_css 'h2', text: 'Information about organising pages as tree hierarchy'

@@ -21,7 +21,7 @@ describe 'Showing account' do
     it 'displays the account' do
       expect(page).to have_title 'Welcome, User test name! - Desksharing'
       expect(page).to have_active_navigation_items 'User menu', 'Show account'
-      expect(page).to have_breadcrumbs 'Desksharing', 'User test name'
+      expect(page).to have_breadcrumbs 'Startpage', 'User test name'
       expect(page).to have_headline 'Welcome, User test name!'
 
       within dom_id_selector(@user) do

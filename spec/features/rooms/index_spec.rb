@@ -13,7 +13,7 @@ describe 'Listing rooms' do
 
     expect(page).to have_title 'Rooms - Desksharing'
     expect(page).to have_active_navigation_items 'Rooms', 'List of Rooms'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Rooms'
+    expect(page).to have_breadcrumbs 'Startpage', 'Rooms'
     expect(page).to have_headline 'Rooms'
 
     expect(page).to have_css 'h2', text: 'Filter'

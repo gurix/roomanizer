@@ -13,7 +13,7 @@ describe 'Showing room' do
 
     expect(page).to have_title 'Hell - Desksharing'
     expect(page).to have_active_navigation_items 'Rooms'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Rooms', 'Hell'
+    expect(page).to have_breadcrumbs 'Startpage', 'Rooms', 'Hell'
     expect(page).to have_headline 'Hell'
 
     within dom_id_selector(room) do

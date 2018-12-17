@@ -6,7 +6,7 @@ describe PageTitleAndHeadlineHelper do
       before { helper.instance_variable_set(:@virtual_path, 'homepage.show') }
       subject { helper.headline_with_flash } # Why do we need explicit receiver? See http://stackoverflow.com/questions/29229368
 
-      it { should have_content 'Welcome to Base!' }
+      it { should have_content 'Desksharing β' }
     end
 
     describe '#headline_with_flash("Some title")' do

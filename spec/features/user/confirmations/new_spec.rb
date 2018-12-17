@@ -8,7 +8,7 @@ describe 'Requesting new confirmation', pending: 'confirmation disabled in this 
 
     expect(page).to have_title 'Resend confirmation instructions - Desksharing'
     expect(page).to have_active_navigation_items 'Sign up'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Sign up', 'Resend confirmation...'
+    expect(page).to have_breadcrumbs 'Startpage', 'Sign up', 'Resend confirmation...'
     expect(page).to have_headline 'Resend confirmation instructions'
 
     within '.frequently_occuring_sign_in_problems' do

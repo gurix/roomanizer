@@ -24,7 +24,7 @@ describe 'Showing page' do
 
     expect(page).to have_title 'Page test title - Desksharing'
     expect(page).to have_active_navigation_items 'Page test navigation title'
-    expect(page).to have_breadcrumbs 'Desksharing', 'Cool parent page', 'Page test navigation title'
+    expect(page).to have_breadcrumbs 'Startpage', 'Cool parent page', 'Page test navigation title'
     expect(page).to have_headline 'Page test title'
 
     within dom_id_selector(@page) do
