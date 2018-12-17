@@ -13,7 +13,7 @@ require 'mina/git'
 set :application_name, 'Roomanizer'
 set :domain, ENV['DOMAIN']
 set :deploy_to, ENV['DEPLOY_TO']
-set :repository, ENV['REPOSITORY'] `git config --get remote.origin.url`.strip
+set :repository, ENV['REPOSITORY'] || `git config --get remote.origin.url`.strip
 set :branch, ENV['branch'] || `git rev-parse --abbrev-ref HEAD`.strip
 
 # Optional settings:
