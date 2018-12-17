@@ -10,9 +10,9 @@ require 'mina/git'
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'Base'
-set :domain, 'sirius.uberspace.de'
-set :deploy_to, '/home/base/rails'
-set :repository, 'git@github.com:jmuheim/base.git'
+set :domain, Rails.application.secrets.domain
+set :deploy_to, Rails.application.secrets.deploy_to
+set :repository, Rails.application.secrets.repository
 set :branch, ENV['branch'] || `git rev-parse --abbrev-ref HEAD`.strip
 
 # Optional settings:
