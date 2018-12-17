@@ -9,7 +9,7 @@ describe 'Create booking' do
   it 'creates a booking for a room' do
     visit new_room_booking_path(@room)
 
-    expect(page).to have_title 'Create Booking - Desksharing'
+    expect(page).to have_title 'Create Booking: 72.22.2 - Desksharing'
     expect(page).to have_active_navigation_items 'Rooms'
     expect(page).to have_breadcrumbs 'Startpage', 'Rooms', '72.22.2', 'Booking', 'Create'
     expect(page).to have_headline 'Create Booking'

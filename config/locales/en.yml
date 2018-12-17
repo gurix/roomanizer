@@ -74,6 +74,10 @@ en:
     form:
       room_information: Room information
   bookings:
+    new:
+      title: "Create Booking: %{for}"
+    edit:
+      title: "Edit Booking: %{for}"
     form:
       booking_information: Booking information
   workspaces:
