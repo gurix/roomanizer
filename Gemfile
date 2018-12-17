@@ -151,6 +151,8 @@ group :development do
 
   gem 'mina', require: false # Really fast deployer and server automation tool
 
+  gem 'dotenv-rails', groups: [:development, :test] # Shim to load environment variables from .env into ENV in development.
+
   gem 'i18n_yaml_sorter' # A I18n YAML deep sorter that will keep your locales organized
 end
 

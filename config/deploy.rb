@@ -1,3 +1,4 @@
+require 'dotenv/load'
 require 'mina/rails'
 require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
@@ -9,10 +10,10 @@ require 'mina/git'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :application_name, 'Base'
-set :domain, Rails.application.secrets.domain
-set :deploy_to, Rails.application.secrets.deploy_to
-set :repository, Rails.application.secrets.repository
+set :application_name, 'Roomanizer'
+set :domain, ENV['DOMAIN']
+set :deploy_to, ENV['DEPLOY_TO']
+set :repository, ENV['REPOSITORY'] `git config --get remote.origin.url`.strip
 set :branch, ENV['branch'] || `git rev-parse --abbrev-ref HEAD`.strip
 
 # Optional settings:
