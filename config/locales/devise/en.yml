@@ -39,6 +39,7 @@ en:
         title: Welcome, %{user}!
     sessions:
       form:
+        hint_html: "Sign in with your ZHAW short name, for example: <i>short name</i>@zhaw.ch."
         having_a_problem: Having a problem?
         sign_in: Sign in
         email: Email

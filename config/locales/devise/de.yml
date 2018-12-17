@@ -39,6 +39,7 @@ de:
         title: Willkommen, %{user}!
     sessions:
       form:
+        hint_html: "Melden Sie sich mit ihrem ZHAW-Kurznamen an, beispielsweise: <i>kurzname</i>@zhaw.ch."
         having_a_problem: Hast du ein Problem?
         sign_in: Anmelden
         email: Email
