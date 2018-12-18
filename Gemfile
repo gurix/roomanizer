@@ -21,7 +21,7 @@ gem 'compass-rails' # Compass framework
 gem 'viewpoint' # A Ruby client access library for Microsoft Exchange Web Services (EWS)
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 gem 'bootstrap-sass' # Sleek, intuitive, and powerful front-end framework
 
