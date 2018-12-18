@@ -17,7 +17,7 @@ set :repository, ENV['REPOSITORY'] || `git config --get remote.origin.url`.strip
 set :branch, ENV['branch'] || `git rev-parse --abbrev-ref HEAD`.strip
 
 # Optional settings:
-set :user, 'base'          # Username in the server to SSH to.
+set :user, ENV['SSH_USER']          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
 set :forward_agent, true   # SSH forward_agent.
 
